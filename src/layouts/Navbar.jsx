@@ -8,33 +8,40 @@ const logo = new URL("../assets/logo.svg", import.meta.url);
 const NavigationBar = () => {
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    navigate("/login");
-  };
-
   return (
-    <Navbar expand="lg" className="navbar-custom bg-white shadow-sm">
+    <Navbar expand="lg" bg="white" className="navbar-custom shadow-sm py-2">
       <Container>
-        <img src={logo} alt="logo" className="logo" />
-        <Navbar.Brand href="#home"></Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto navLink align-items-center">
+        <Navbar.Brand>
+          <img src={logo} alt="Site Logo" className="logo" />
+        </Navbar.Brand>
+
+        <Navbar.Toggle aria-controls="main-navbar-nav" />
+
+        <Navbar.Collapse id="main-navbar-nav">
+          <Nav className="ms-auto align-items-center navLink">
             <LinkContainer to="/">
               <Nav.Link>HOME</Nav.Link>
             </LinkContainer>
+
             <LinkContainer to="/facilities">
               <Nav.Link>SERVICES</Nav.Link>
             </LinkContainer>
+
             <LinkContainer to="/activities">
               <Nav.Link>ABOUT PROJECT</Nav.Link>
             </LinkContainer>
+
             <LinkContainer to="/careers">
               <Nav.Link>CAREERS</Nav.Link>
             </LinkContainer>
+
             <Button className="contact mx-2">CONTACT</Button>
-            <Button onClick={handleLogin} className="login-btn">
-             ADMIN LOGIN
+
+            <Button 
+              onClick={() => navigate("/login")} 
+              className="login-btn"
+            >
+              ADMIN LOGIN
             </Button>
           </Nav>
         </Navbar.Collapse>
